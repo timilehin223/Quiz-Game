@@ -4,7 +4,7 @@
 
 #define no_of_questions 20
 
-struct options
+struct options //Structure defining the multiple choice options
     {
         char A[200];
         char B[200];
@@ -12,7 +12,7 @@ struct options
         char D[200];
     };
 
-typedef struct Quest
+typedef struct Quest //Structure that holds the questions
 {
     char question [200];
     struct options options;
@@ -30,7 +30,7 @@ void introduction (){ //Return Type of Function is void cos it doesn't return an
 }
 
 int score =0;
-void userinput(int i, struct Quest block []){
+void userinput(int i, struct Quest block []){ //Code that asks for user's input and interacts with user. 
     char ans;
     printf("What is your answer?\n");
     scanf(" %c", &ans);
@@ -43,12 +43,12 @@ void userinput(int i, struct Quest block []){
     }  
 }
 
-int scores (){
-    return score;
+void scores (){ //Function that prints out scores. 
+    printf("You scored %d out of %d", score, 3);
 }
 
 int i;
-void cont (){
+void cont (){ //Function containing questions and answers
     struct Quest quest1;
     strcpy (quest1.question, "Who is the author of the famous novel \"To Kill a Mockingbird\"?");
     strcpy (quest1.options.A, "A. Harper Lee");
@@ -62,7 +62,7 @@ void cont (){
     strcpy (quest2.options.B, "B. Jupiter");
     strcpy (quest2.options.C, "C. Mars");
     strcpy (quest2.options.D, "D. Venus");
-    quest1.answer='C';
+    quest2.answer='C';
     struct Quest quest3;
     strcpy (quest3.question, "Who painted the famous artwork \"Mona Lisa\"?");
     strcpy (quest3.options.A, "A. Claude Monet");
@@ -96,7 +96,7 @@ void choice (int c){
 
 
 
-int main (){
+int main (){ //main function (flow of code)
     int c;
     introduction ();
     printf("Yes.Type 1/No. Type 0\n");
